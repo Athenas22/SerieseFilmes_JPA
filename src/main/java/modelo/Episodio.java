@@ -20,19 +20,30 @@ public class Episodio {
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Serie serie;
 
-    public Episodio() {} // obrigatorio para JPA
+    public Episodio() {}
 
     public Episodio(String nome) {
         this.nome = nome;
     }
 
-    public int getId() { return id; }
+    public int getId() {
+        return id;
+    }
 
-    public String getNome() { return nome; }
-    public void setNome(String nome) { this.nome = nome; }
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-    public Serie getSerie() { return serie; }
-    public void setSerie(Serie serie) { this.serie = serie; }
+    public Serie getSerie() {
+        return serie;
+    }
+
+    public void setSerie(Serie serie) {
+        this.serie = serie;
+    }
 
     @Override
     public String toString() {

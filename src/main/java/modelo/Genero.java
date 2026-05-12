@@ -22,18 +22,26 @@ public class Genero {
     @ManyToMany(mappedBy = "generos")
     private List<Serie> series = new ArrayList<>();
 
-    public Genero() {} // obrigatorio para JPA
+    public Genero() {}
 
     public Genero(String nome) {
         this.nome = nome;
     }
 
-    public int getId() { return id; }
+    public int getId() {
+        return id;
+    }
 
-    public String getNome() { return nome; }
-    public void setNome(String nome) { this.nome = nome; }
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-    public List<Serie> getSeries() { return series; }
+    public List<Serie> getSeries() {
+        return series;
+    }
 
     @Override
     public String toString() {

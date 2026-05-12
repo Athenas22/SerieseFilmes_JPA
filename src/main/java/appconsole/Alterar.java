@@ -21,8 +21,8 @@ public class Alterar {
                     "select s from Serie s where s.nome = 'Breaking Bad'", Serie.class);
             Serie s = q.getSingleResult();
 
-            Genero g = s.getGeneros().getFirst(); // pega o primeiro genero
-            s.remover(g); // remove relacionamento bidirecional
+            Genero g = s.getGeneros().getFirst();
+            s.remover(g);
 
             manager.getTransaction().commit();
 

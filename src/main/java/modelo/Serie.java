@@ -30,23 +30,39 @@ public class Serie {
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Genero> generos = new ArrayList<>();
 
-    public Serie() {} // obrigatorio para JPA
+    public Serie() {}
 
     public Serie(String nome, int ano) {
         this.nome = nome;
         this.ano = ano;
     }
 
-    public int getId() { return id; }
+    public int getId() {
+        return id;
+    }
 
-    public String getNome() { return nome; }
-    public void setNome(String nome) { this.nome = nome; }
+    public String getNome() {
+        return nome;
 
-    public int getAno() { return ano; }
-    public void setAno(int ano) { this.ano = ano; }
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-    public List<Episodio> getEpisodios() { return episodios; }
-    public List<Genero> getGeneros() { return generos; }
+    public int getAno() {
+        return ano;
+    }
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
+    public List<Episodio> getEpisodios() {
+        return episodios;
+    }
+
+    public List<Genero> getGeneros() {
+        return generos;
+    }
 
     public void adicionar(Episodio e) {
         episodios.add(e);

@@ -27,12 +27,11 @@ public class Deletar {
                 return;
             }
 
-            // desfazer relacionamentos com generos antes de deletar
             for (Genero g : s.getGeneros())
                 g.getSeries().remove(s);
             s.getGeneros().clear();
 
-            // episodios sao deletados automaticamente (orphanRemoval = true)
+            // episodios sao deletados de maneira automatica (orphanRemoval ta true)
             manager.remove(s);
             manager.getTransaction().commit();
 
