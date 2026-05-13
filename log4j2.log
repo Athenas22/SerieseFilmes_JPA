@@ -1,34 +1,25 @@
-2026-05-12 14:45:13 [main] INFO  Util - ----configurando postgresql
-2026-05-12 14:45:13 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
-2026-05-12 14:45:16 [main] INFO  Util - -------- conectou banco de dados
-2026-05-12 14:45:16 [main] DEBUG SQL - select s1_0.id,s1_0.ano,s1_0.nome from serie20242370007 s1_0
-2026-05-12 14:45:16 [main] DEBUG SQL - select e1_0.serie_id,e1_0.id,e1_0.nome from episodio20242370015 e1_0 where e1_0.serie_id=?
-2026-05-12 14:45:16 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
-2026-05-12 14:45:16 [main] DEBUG SQL - select g1_0.series_id,g1_1.id,g1_1.nome from serie20242370007_genero20242370026 g1_0 join genero20242370026 g1_1 on g1_1.id=g1_0.generos_id where g1_0.series_id=?
-2026-05-12 14:45:16 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
-2026-05-12 14:45:16 [main] DEBUG SQL - select e1_0.serie_id,e1_0.id,e1_0.nome from episodio20242370015 e1_0 where e1_0.serie_id=?
-2026-05-12 14:45:16 [main] TRACE bind - binding parameter (1:INTEGER) <- [2]
-2026-05-12 14:45:16 [main] DEBUG SQL - select g1_0.series_id,g1_1.id,g1_1.nome from serie20242370007_genero20242370026 g1_0 join genero20242370026 g1_1 on g1_1.id=g1_0.generos_id where g1_0.series_id=?
-2026-05-12 14:45:16 [main] TRACE bind - binding parameter (1:INTEGER) <- [2]
-2026-05-12 14:45:16 [main] DEBUG SQL - select e1_0.serie_id,e1_0.id,e1_0.nome from episodio20242370015 e1_0 where e1_0.serie_id=?
-2026-05-12 14:45:16 [main] TRACE bind - binding parameter (1:INTEGER) <- [3]
-2026-05-12 14:45:16 [main] DEBUG SQL - select g1_0.series_id,g1_1.id,g1_1.nome from serie20242370007_genero20242370026 g1_0 join genero20242370026 g1_1 on g1_1.id=g1_0.generos_id where g1_0.series_id=?
-2026-05-12 14:45:16 [main] TRACE bind - binding parameter (1:INTEGER) <- [3]
-2026-05-12 14:45:16 [main] DEBUG SQL - select e1_0.serie_id,e1_0.id,e1_0.nome from episodio20242370015 e1_0 where e1_0.serie_id=?
-2026-05-12 14:45:16 [main] TRACE bind - binding parameter (1:INTEGER) <- [4]
-2026-05-12 14:45:16 [main] DEBUG SQL - select g1_0.series_id,g1_1.id,g1_1.nome from serie20242370007_genero20242370026 g1_0 join genero20242370026 g1_1 on g1_1.id=g1_0.generos_id where g1_0.series_id=?
-2026-05-12 14:45:16 [main] TRACE bind - binding parameter (1:INTEGER) <- [4]
-2026-05-12 14:45:16 [main] DEBUG SQL - select e1_0.serie_id,e1_0.id,e1_0.nome from episodio20242370015 e1_0 where e1_0.serie_id=?
-2026-05-12 14:45:16 [main] TRACE bind - binding parameter (1:INTEGER) <- [5]
-2026-05-12 14:45:16 [main] DEBUG SQL - select g1_0.series_id,g1_1.id,g1_1.nome from serie20242370007_genero20242370026 g1_0 join genero20242370026 g1_1 on g1_1.id=g1_0.generos_id where g1_0.series_id=?
-2026-05-12 14:45:16 [main] TRACE bind - binding parameter (1:INTEGER) <- [5]
-2026-05-12 14:45:16 [main] DEBUG SQL - select e1_0.id,e1_0.nome,e1_0.serie_id from episodio20242370015 e1_0 order by e1_0.id
-2026-05-12 14:45:16 [main] DEBUG SQL - select g1_0.id,g1_0.nome from genero20242370026 g1_0
-2026-05-12 14:45:16 [main] DEBUG SQL - select s1_0.generos_id,s1_1.id,s1_1.ano,s1_1.nome from serie20242370007_genero20242370026 s1_0 join serie20242370007 s1_1 on s1_1.id=s1_0.series_id where s1_0.generos_id=?
-2026-05-12 14:45:16 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
-2026-05-12 14:45:16 [main] DEBUG SQL - select s1_0.generos_id,s1_1.id,s1_1.ano,s1_1.nome from serie20242370007_genero20242370026 s1_0 join serie20242370007 s1_1 on s1_1.id=s1_0.series_id where s1_0.generos_id=?
-2026-05-12 14:45:16 [main] TRACE bind - binding parameter (1:INTEGER) <- [2]
-2026-05-12 14:45:16 [main] DEBUG SQL - select s1_0.generos_id,s1_1.id,s1_1.ano,s1_1.nome from serie20242370007_genero20242370026 s1_0 join serie20242370007 s1_1 on s1_1.id=s1_0.series_id where s1_0.generos_id=?
-2026-05-12 14:45:16 [main] TRACE bind - binding parameter (1:INTEGER) <- [3]
-2026-05-12 14:45:16 [main] DEBUG SQL - select s1_0.generos_id,s1_1.id,s1_1.ano,s1_1.nome from serie20242370007_genero20242370026 s1_0 join serie20242370007 s1_1 on s1_1.id=s1_0.series_id where s1_0.generos_id=?
-2026-05-12 14:45:16 [main] TRACE bind - binding parameter (1:INTEGER) <- [4]
+2026-05-12 16:15:55 [main] INFO  Util - ----configurando postgresql
+2026-05-12 16:15:56 [main] WARN  pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-05-12 16:15:58 [main] INFO  Util - -------- conectou banco de dados
+2026-05-12 16:15:58 [main] DEBUG SQL - select s1_0.id,s1_0.ano,s1_0.nome from serie20242370007 s1_0 where s1_0.ano=?
+2026-05-12 16:15:58 [main] TRACE bind - binding parameter (1:INTEGER) <- [2011]
+2026-05-12 16:15:58 [main] DEBUG SQL - select e1_0.serie_id,e1_0.id,e1_0.nome from episodio20242370015 e1_0 where e1_0.serie_id=?
+2026-05-12 16:15:58 [main] TRACE bind - binding parameter (1:INTEGER) <- [5]
+2026-05-12 16:15:58 [main] DEBUG SQL - select g1_0.series_id,g1_1.id,g1_1.nome from serie20242370007_genero20242370026 g1_0 join genero20242370026 g1_1 on g1_1.id=g1_0.generos_id where g1_0.series_id=?
+2026-05-12 16:15:58 [main] TRACE bind - binding parameter (1:INTEGER) <- [5]
+2026-05-12 16:15:58 [main] DEBUG SQL - select s1_0.id,s1_0.ano,s1_0.nome from serie20242370007 s1_0 join serie20242370007_genero20242370026 g1_0 on s1_0.id=g1_0.series_id join genero20242370026 g1_1 on g1_1.id=g1_0.generos_id where g1_1.nome=?
+2026-05-12 16:15:58 [main] TRACE bind - binding parameter (1:VARCHAR) <- [Drama]
+2026-05-12 16:15:58 [main] DEBUG SQL - select e1_0.serie_id,e1_0.id,e1_0.nome from episodio20242370015 e1_0 where e1_0.serie_id=?
+2026-05-12 16:15:58 [main] TRACE bind - binding parameter (1:INTEGER) <- [2]
+2026-05-12 16:15:58 [main] DEBUG SQL - select g1_0.series_id,g1_1.id,g1_1.nome from serie20242370007_genero20242370026 g1_0 join genero20242370026 g1_1 on g1_1.id=g1_0.generos_id where g1_0.series_id=?
+2026-05-12 16:15:58 [main] TRACE bind - binding parameter (1:INTEGER) <- [2]
+2026-05-12 16:15:59 [main] DEBUG SQL - select s1_0.id,s1_0.ano,s1_0.nome from serie20242370007 s1_0 where (select count(*) from episodio20242370015 e1_0 where s1_0.id=e1_0.serie_id)>?
+2026-05-12 16:15:59 [main] TRACE bind - binding parameter (1:INTEGER) <- [2]
+2026-05-12 16:15:59 [main] DEBUG SQL - select e1_0.serie_id,e1_0.id,e1_0.nome from episodio20242370015 e1_0 where e1_0.serie_id=?
+2026-05-12 16:15:59 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-05-12 16:15:59 [main] DEBUG SQL - select g1_0.series_id,g1_1.id,g1_1.nome from serie20242370007_genero20242370026 g1_0 join genero20242370026 g1_1 on g1_1.id=g1_0.generos_id where g1_0.series_id=?
+2026-05-12 16:15:59 [main] TRACE bind - binding parameter (1:INTEGER) <- [1]
+2026-05-12 16:15:59 [main] DEBUG SQL - select e1_0.serie_id,e1_0.id,e1_0.nome from episodio20242370015 e1_0 where e1_0.serie_id=?
+2026-05-12 16:15:59 [main] TRACE bind - binding parameter (1:INTEGER) <- [4]
+2026-05-12 16:15:59 [main] DEBUG SQL - select g1_0.series_id,g1_1.id,g1_1.nome from serie20242370007_genero20242370026 g1_0 join genero20242370026 g1_1 on g1_1.id=g1_0.generos_id where g1_0.series_id=?
+2026-05-12 16:15:59 [main] TRACE bind - binding parameter (1:INTEGER) <- [4]
