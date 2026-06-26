@@ -1,16 +1,10 @@
 package modelo;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "serie20242370007")
@@ -19,22 +13,30 @@ public class Serie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    
     private String nome;
-    private int ano;
+    
+    // O atributo ano sumiu e deu lugar a este aqui:
+    private LocalDate dataLancamento;
 
-    @OneToMany(mappedBy = "serie",
-            cascade = {CascadeType.PERSIST, CascadeType.MERGE},
-            orphanRemoval = true)
+    @Lob // OBRIGATÓRIO: Atributo para armazenar imagem
+    @Basic(fetch = FetchType.LAZY)
+    private byte[] foto;
+
+    // CORREÇÃO: Inicializando as listas com "new ArrayList<>()"
+    @OneToMany(mappedBy = "serie", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Episodio> episodios = new ArrayList<>();
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Genero> generos = new ArrayList<>();
 
+    // Construtor vazio (obrigatório para o JPA)
     public Serie() {}
 
-    public Serie(String nome, int ano) {
+    // CORREÇÃO: O construtor agora recebe o LocalDate
+    public Serie(String nome, LocalDate dataLancamento) {
         this.nome = nome;
-        this.ano = ano;
+        this.dataLancamento = dataLancamento;
     }
 
     public int getId() {
@@ -43,18 +45,19 @@ public class Serie {
 
     public String getNome() {
         return nome;
-
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public int getAno() {
-        return ano;
+    // CORREÇÃO: Getters e Setters agora são do LocalDate
+    public LocalDate getDataLancamento() {
+        return dataLancamento;
     }
 
-    public void setAno(int ano) {
-        this.ano = ano;
+    public void setDataLancamento(LocalDate dataLancamento) {
+        this.dataLancamento = dataLancamento;
     }
 
     public List<Episodio> getEpisodios() {
@@ -69,6 +72,7 @@ public class Serie {
         episodios.add(e);
         e.setSerie(this);
     }
+    
     public void remover(Episodio e) {
         episodios.remove(e);
         e.setSerie(null);
@@ -78,6 +82,7 @@ public class Serie {
         generos.add(g);
         g.getSeries().add(this);
     }
+    
     public void remover(Genero g) {
         generos.remove(g);
         g.getSeries().remove(this);
@@ -85,13 +90,19 @@ public class Serie {
 
     @Override
     public String toString() {
-        String texto = "id=" + id + ", nome=" + nome + ", ano=" + ano;
-        texto += ",  episodios: ";
-        for (Episodio e : episodios)
-            texto += e.getNome() + ",";
-        texto += ",  generos: ";
-        for (Genero g : generos)
-            texto += g.getNome() + ",";
+        // CORREÇÃO: Usando a dataLancamento no texto
+        String texto = "id=" + id + ", nome=" + nome + ", lancamento=" + dataLancamento;
+        
+        texto += ", episodios: ";
+        for (Episodio e : episodios) {
+            texto += e.getNome() + ", ";
+        }
+            
+        texto += "generos: ";
+        for (Genero g : generos) {
+            texto += g.getNome() + ", ";
+        }
+            
         return texto;
     }
 }

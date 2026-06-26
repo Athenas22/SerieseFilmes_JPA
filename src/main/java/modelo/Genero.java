@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType; // Importação adicionada
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -17,9 +18,11 @@ public class Genero {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    
     private String nome;
 
-    @ManyToMany(mappedBy = "generos")
+    // CORREÇÃO: Adicionado o fetch = FetchType.LAZY
+    @ManyToMany(mappedBy = "generos", fetch = FetchType.LAZY)
     private List<Serie> series = new ArrayList<>();
 
     public Genero() {}
