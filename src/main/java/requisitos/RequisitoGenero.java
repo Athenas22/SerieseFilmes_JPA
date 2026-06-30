@@ -12,11 +12,7 @@ public class RequisitoGenero {
         this.repoGenero = new RepositorioGenero();
     }
 
-    /**
-     * Cadastra um novo gênero no sistema.
-     * @param nome Nome do gênero (ex: Drama, Ação).
-     * @throws Exception Se o nome estiver vazio ou se o gênero já existir.
-     */
+
     public void cadastrarGenero(String nome) throws Exception {
         if (nome == null || nome.trim().isEmpty()) {
             throw new Exception("O nome do gênero não pode estar vazio.");
@@ -24,7 +20,6 @@ public class RequisitoGenero {
 
         RepositorioGenero.begin();
         try {
-            // Regra de negócio: impede duplicidade de gêneros pelo nome (ignora maiúsculas/minúsculas)
             List<Genero> todos = repoGenero.listar();
             for (Genero g : todos) {
                 if (g.getNome().equalsIgnoreCase(nome.trim())) {
