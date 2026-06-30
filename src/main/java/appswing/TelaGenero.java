@@ -51,7 +51,7 @@ public class TelaGenero {
         frame.setResizable(false);
         frame.setModal(true);
         frame.setTitle("Gerenciar Gêneros");
-        frame.setBounds(100, 100, 500, 450); // Tela um pouco menor por ter menos campos
+        frame.setBounds(100, 100, 500, 450); 
         frame.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         frame.getContentPane().setLayout(null);
         
@@ -78,7 +78,6 @@ public class TelaGenero {
                 try {
                     lblMensagem.setText("");
                     if (table.getSelectedRow() >= 0) {
-                        // A coluna 0 tem o ID (Integer) e a coluna 1 tem o Nome (String)
                         Integer idGenero = (Integer) table.getValueAt(table.getSelectedRow(), 0);
                         String nomeGenero = (String) table.getValueAt(table.getSelectedRow(), 1);
                         
