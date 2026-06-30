@@ -49,7 +49,6 @@ public class TelaConsulta {
         frame.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         frame.getContentPane().setLayout(null);
 
-        // --- COMPONENTES DO TOPO (Filtros) ---
         String[] opcoes = {
             "1. Séries lançadas no ano X",
             "2. Séries do gênero de nome X",
@@ -77,7 +76,6 @@ public class TelaConsulta {
         });
         frame.getContentPane().add(btnConsultar);
 
-        // --- TABELA DE RESULTADOS ---
         scrollPane = new JScrollPane();
         scrollPane.setBounds(21, 60, 640, 350);
         frame.getContentPane().add(scrollPane);
@@ -99,7 +97,6 @@ public class TelaConsulta {
         table.setShowGrid(true);
         table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 
-        // --- RODAPÉ ---
         lblResultados = new JLabel("Resultados: 0");
         lblResultados.setBounds(21, 420, 200, 14);
         frame.getContentPane().add(lblResultados);
@@ -109,7 +106,6 @@ public class TelaConsulta {
         lblMensagem.setBounds(250, 420, 410, 14);
         frame.getContentPane().add(lblMensagem);
 
-        // Inicializa a tabela vazia
         limparTabela();
 
         frame.setVisible(true);
@@ -129,14 +125,14 @@ public class TelaConsulta {
             List<Serie> listaResultados = null;
 
             switch (tipoConsulta) {
-                case 0: // Ano
+                case 0: 
                     int ano = Integer.parseInt(parametro);
                     listaResultados = requisitoSerie.consultarPorAno(ano);
                     break;
-                case 1: // Gênero
+                case 1: 
                     listaResultados = requisitoSerie.consultarPorGenero(parametro);
                     break;
-                case 2: // Quantidade de Episódios
+                case 2: 
                     int qtdEpisodios = Integer.parseInt(parametro);
                     listaResultados = requisitoSerie.consultarComMaisDeNEpisodios(qtdEpisodios);
                     break;
