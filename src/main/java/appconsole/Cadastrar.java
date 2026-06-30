@@ -6,7 +6,7 @@ import modelo.Genero;
 import modelo.Serie;
 import util.Util;
 
-import java.time.LocalDate; // OBRIGATÓRIO: Importar o LocalDate
+import java.time.LocalDate; 
 
 public class Cadastrar {
     private EntityManager manager;
@@ -17,8 +17,6 @@ public class Cadastrar {
             manager = Util.getManager();
 
             System.out.println("Cadastrando series, episodios e generos...");
-
-            // Objetos criados em memória
             Genero gDrama   = new Genero("Drama");
             Genero gAcao    = new Genero("Acao");
             Genero gComedia = new Genero("Comedia");
@@ -26,10 +24,8 @@ public class Cadastrar {
 
             Serie s;
 
-            // CORREÇÃO: Abre a transação UMA ÚNICA VEZ para todo o cadastro
             manager.getTransaction().begin();
 
-            // CORREÇÃO: Usando LocalDate.of(ano, mes, dia)
             s = new Serie("Breaking Bad", LocalDate.of(2008, 1, 20));
             s.adicionar(new Episodio("Piloto"));
             s.adicionar(new Episodio("Cat's in the Bag"));
@@ -46,7 +42,7 @@ public class Cadastrar {
             s.adicionar(new Episodio("A estranha na Maple Street"));
             s.adicionar(new Episodio("A pulga e o acrobata"));
             s.adicionar(gSciFi);
-            s.adicionar(gDrama); // Reaproveitando o gDrama na mesma transação
+            s.adicionar(gDrama); 
             manager.persist(s);
 
             s = new Serie("The Office", LocalDate.of(2005, 3, 24));
@@ -70,18 +66,18 @@ public class Cadastrar {
             s.adicionar(gSciFi);
             manager.persist(s);
 
-            // CORREÇÃO: Confirma (commit) tudo de uma vez só no banco!
+           
             manager.getTransaction().commit();
 
             System.out.println("cadastrou com sucesso");
 
         } catch (Exception e) {
-            // Se der qualquer erro, desfaz tudo
+        
             if (manager != null && manager.getTransaction().isActive()) {
                 manager.getTransaction().rollback();
             }
             System.out.println("problema: " + e.getMessage());
-            e.printStackTrace(); // Imprime o erro detalhado no console para ajudar a investigar
+            e.printStackTrace();
         } finally {
             Util.desconectar();
             System.out.println("fim do programa");
