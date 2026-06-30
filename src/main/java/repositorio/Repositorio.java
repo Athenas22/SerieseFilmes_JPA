@@ -20,8 +20,6 @@ public abstract class Repositorio<T> implements CRUDInterface<T> {
 		Util.desconectar();
 	}
 
-	// opera��es CRUD gen�ricas
-
 	public void criar(T objeto) {
 		Util.getManager().persist(objeto);
 	}
@@ -34,7 +32,6 @@ public abstract class Repositorio<T> implements CRUDInterface<T> {
 		Util.getManager().remove(objeto);
 	}
 
-	// M�TODOS ABSTRATOS (ver subclasses)
 	public abstract T localizar(Object chave);
 	public abstract List<T> listar();
 
@@ -58,8 +55,6 @@ public abstract class Repositorio<T> implements CRUDInterface<T> {
 	}
 
 	public void resetID() {
-		// reinicializar id em 1 no banco
-		// deve ser chamado de dentro de uma transa��o, antes de um commit
 		@SuppressWarnings("unchecked")
 		Class<T> type = (Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass())
 				.getActualTypeArguments()[0];
@@ -69,8 +64,6 @@ public abstract class Repositorio<T> implements CRUDInterface<T> {
 			Connection con = Repositorio.getConnection();
 			if (con == null)
 				throw new SQLException("resetar id - falha ao obter conexao");
-
-			// sql para resetar depende do SGBD
 			nomesgbd = con.getMetaData().getDatabaseProductName();
 			if (nomesgbd.equalsIgnoreCase("postgresql"))
 				Util.getManager().createNativeQuery("ALTER SEQUENCE " + classe + "_id_seq RESTART WITH 1")
@@ -87,7 +80,6 @@ public abstract class Repositorio<T> implements CRUDInterface<T> {
 	}
 
 	public static Connection getConnection() {
-		// obter conexao jdbc (classe Connection) atraves do hibernate
 		try {
 			Session session = Util.getManager().unwrap(Session.class);
 			SessionFactoryImplementor sfi = (SessionFactoryImplementor) session.getSessionFactory();
