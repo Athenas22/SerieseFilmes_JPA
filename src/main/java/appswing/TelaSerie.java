@@ -106,17 +106,15 @@ public class TelaSerie {
 
                         if (serieSelecionada != null) {
                             txtNome.setText(serieSelecionada.getNome());
-                            
-                            // Formata a data para exibir na tela
+                        
                             DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                             txtDataLancamento.setText(serieSelecionada.getDataLancamento().format(fmt));
 
-                            // Listar informações básicas (Gêneros e Episódios)
+                           
                             int qtdEps = serieSelecionada.getEpisodios().size();
                             int qtdGen = serieSelecionada.getGeneros().size();
                             txtInfo.setText("Gêneros: " + qtdGen + " | Episódios: " + qtdEps);
 
-                            // Carregar foto
                             // ATENÇÃO: Verifique se você tem o método getFoto() e setFoto() na classe Serie!
                             /* SE TIVER FOTO NA CLASSE, DESCOMENTE ESTE BLOCO:
                             if (serieSelecionada.getFoto() != null) {
@@ -300,7 +298,6 @@ public class TelaSerie {
             String nome = txtNome.getText().trim();
             String dataStr = txtDataLancamento.getText().trim();
             
-            // Converte a string dd/MM/yyyy para LocalDate
             DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             LocalDate data = LocalDate.parse(dataStr, fmt);
 
@@ -337,7 +334,7 @@ public class TelaSerie {
                 requisito.excluirSerie(nome);
                 lblMensagem.setText("Série excluída com sucesso!");
                 listagem();
-                btnLimpar.doClick(); // Limpa os campos após apagar
+                btnLimpar.doClick(); 
             }
         } catch (Exception erro) {
             lblMensagem.setText("Erro ao apagar: " + erro.getMessage());
