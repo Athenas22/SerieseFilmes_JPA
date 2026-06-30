@@ -13,27 +13,22 @@ public class Serie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    
     private String nome;
-    
-    // O atributo ano sumiu e deu lugar a este aqui:
     private LocalDate dataLancamento;
 
-    @Lob // OBRIGATÓRIO: Atributo para armazenar imagem
+    @Lob 
     @Basic(fetch = FetchType.LAZY)
     private byte[] foto;
 
-    // CORREÇÃO: Inicializando as listas com "new ArrayList<>()"
+    
     @OneToMany(mappedBy = "serie", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Episodio> episodios = new ArrayList<>();
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Genero> generos = new ArrayList<>();
 
-    // Construtor vazio (obrigatório para o JPA)
     public Serie() {}
 
-    // CORREÇÃO: O construtor agora recebe o LocalDate
     public Serie(String nome, LocalDate dataLancamento) {
         this.nome = nome;
         this.dataLancamento = dataLancamento;
@@ -51,7 +46,6 @@ public class Serie {
         this.nome = nome;
     }
 
-    // CORREÇÃO: Getters e Setters agora são do LocalDate
     public LocalDate getDataLancamento() {
         return dataLancamento;
     }
@@ -90,7 +84,6 @@ public class Serie {
 
     @Override
     public String toString() {
-        // CORREÇÃO: Usando a dataLancamento no texto
         String texto = "id=" + id + ", nome=" + nome + ", lancamento=" + dataLancamento;
         
         texto += ", episodios: ";
