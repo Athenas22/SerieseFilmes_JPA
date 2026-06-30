@@ -36,11 +36,7 @@ public class RequisitoGenero {
         }
     }
 
-    /**
-     * Exclui um gênero do sistema pelo seu ID.
-     * @param id ID do gênero a ser excluído.
-     * @throws Exception Se o gênero não for encontrado ou se houver erro ao deletar.
-     */
+
     public void excluirGenero(int id) throws Exception {
         RepositorioGenero.begin();
         try {
@@ -49,7 +45,6 @@ public class RequisitoGenero {
                 throw new Exception("Gênero não encontrado para exclusão.");
             }
 
-            // Regra de negócio: impede excluir gênero se ele ainda estiver vinculado a alguma série
             if (!g.getSeries().isEmpty()) {
                 throw new Exception("Não é possível excluir o gênero '" + g.getNome() + "' porque ele está associado a séries.");
             }
@@ -62,10 +57,7 @@ public class RequisitoGenero {
         }
     }
 
-    /**
-     * Lista todos os gêneros cadastrados no banco de dados.
-     * @return Lista de gêneros.
-     */
+
     public List<Genero> listarTodos() {
         return repoGenero.listar();
     }
