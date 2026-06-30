@@ -43,11 +43,9 @@ public class TelaPrincipal {
         frame.setTitle("Controle de Séries e Filmes - JPA");
         frame.setBounds(100, 100, 500, 350);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().setLayout(null); // Layout absoluto igual ao do professor
+        frame.getContentPane().setLayout(null); 
         frame.setResizable(false);
         
-        // --- GERENCIAMENTO DE CONEXÃO JPA ---
-        // Conecta ao abrir e desconecta ao fechar no "X"
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowOpened(WindowEvent e) {
@@ -67,7 +65,6 @@ public class TelaPrincipal {
             }
         });
         
-        // --- TEXTO CENTRAL DA TELA ---
         JLabel label = new JLabel("Sistema de Gerenciamento");
         label.setFont(new Font("Tahoma", Font.BOLD, 24));
         label.setHorizontalAlignment(SwingConstants.CENTER);
@@ -75,7 +72,7 @@ public class TelaPrincipal {
         label.setBounds(0, 0, 484, 289);
         frame.getContentPane().add(label);
 
-        // --- BARRA DE MENUS ---
+
         JMenuBar menuBar = new JMenuBar();
         frame.setJMenuBar(menuBar);
         
